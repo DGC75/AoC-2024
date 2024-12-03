@@ -1,7 +1,4 @@
 
-
-
-
 filename = "input"
 
 
