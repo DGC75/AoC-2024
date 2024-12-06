@@ -1,0 +1,4 @@
+for faster output, run:
+python main.py > log
+
+and inspect log for the result
