@@ -1,6 +1,6 @@
 from itertools import groupby
 
-filename = 'example'
+filename = 'input'
 
 def adj_cells(x,y, matr):
     #print('center',x,y)
@@ -449,7 +449,7 @@ if __name__ == "__main__":
         #print('region', region)
         a = area(input, region)
         
-        p = perimeter(input,region)
+        p = edges(input,region)
         print('p', p, 'a', a, region)
         count += p*a
 
