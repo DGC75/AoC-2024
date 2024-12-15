@@ -1,7 +1,17 @@
 import re
-
+import os
+import time
 
 filename = 'input'
+
+def detect_tree(position):
+
+    for row in position:
+        for cell in row:
+            if(cell > 1):
+                    return False
+
+    return True
 
 if __name__ == '__main__':
 
@@ -16,26 +26,35 @@ if __name__ == '__main__':
     for robot in robots:
         print(robot)
 
-    seconds = 100
+    k = 0
+    while(True):
+        os.system('clear')
+        seconds = k
 
-    wide = 101
-    tall = 103
+        wide = 101
+        tall = 103
 
-    positions = [ [0]*wide for i in range(tall)]
+        positions = [ [0]*wide for i in range(tall)]
 
-    for robot in robots:
-        px = robot[0][0]
-        py = robot[0][1]
-        vx = robot[1][0]
-        vy = robot[1][1]
+        for robot in robots:
+            px = robot[0][0]
+            py = robot[0][1]
+            vx = robot[1][0]
+            vy = robot[1][1]
 
-        final_pos = [(px+ vx*seconds)%wide,(py+ vy*seconds)%tall]
-        coord = [final_pos[1], final_pos[0]]
+            final_pos = [(px+ vx*seconds)%wide,(py+ vy*seconds)%tall]
+            coord = [final_pos[1], final_pos[0]]
 
-        positions[coord[0]][coord[1]]+=1
+            positions[coord[0]][coord[1]]+=1
 
-    for line in positions:
-        print(line)
+        for line in positions:
+            print(line)
+        print('seconds:', k)
+        #time.sleep(1)
+        if(detect_tree(positions)):
+            break
+        k+=1
+
 
     coord1 =[0,0]
     coord2 =[0, (wide-1)//2 + 1]
