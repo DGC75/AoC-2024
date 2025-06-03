@@ -1,7 +1,7 @@
 import os
 import time
 
-filename = "input"
+filename = "ex1"
 
 def robot_location(warehouse):
     for i in range(len(warehouse)):
